@@ -22,6 +22,7 @@ module.exports = {
     '!src/**/*.stories.{ts,tsx}',
     '!src/main.tsx',
     '!src/vite-env.d.ts',
+    '!src/setupTests.ts',
   ],
   coverageThreshold: {
     global: {

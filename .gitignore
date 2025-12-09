@@ -30,16 +30,10 @@ coverage
 *.sln
 *.sw?
 
-# Project-specific
-DEVELOPMENT_GUIDELINES.md
+# Markdown files - all kept local for reference only
+*.md
 
-# Internal planning documents (optional - can be ignored)
-MARKET_GAP_ANALYSIS.md
-PROJECT_EVALUATION.md
-GAMIFICATION_LEARNING_STRATEGY.md
-CONFIG_SETUP.md
-
-# Personal/Internal Notes (not for public repo)
+# Personal/Internal Notes (additional patterns for safety)
 NOTES.md
 TODO.md
 MEETING_NOTES.md
