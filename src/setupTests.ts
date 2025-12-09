@@ -3,3 +3,19 @@
 // expect(element).toHaveTextContent(/react/i)
 // learn more: https://github.com/testing-library/jest-dom
 import '@testing-library/jest-dom';
+
+// Polyfill TextEncoder/TextDecoder for react-router in Jest environment
+import { TextEncoder, TextDecoder } from 'util';
+
+const globalForTests = globalThis as unknown as {
+  TextEncoder?: typeof TextEncoder;
+  TextDecoder?: typeof TextDecoder;
+};
+
+if (!globalForTests.TextEncoder) {
+  globalForTests.TextEncoder = TextEncoder;
+}
+
+if (!globalForTests.TextDecoder) {
+  globalForTests.TextDecoder = TextDecoder;
+}
