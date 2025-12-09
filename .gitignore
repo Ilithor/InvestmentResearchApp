@@ -26,3 +26,13 @@ dist-ssr
 # Project-specific
 DEVELOPMENT_GUIDELINES.md
 
+# Personal/Internal Notes (not for public repo)
+NOTES.md
+TODO.md
+MEETING_NOTES.md
+SCRATCH.md
+DRAFT*.md
+*_DRAFT.md
+*_NOTES.md
+*_TODO.md
+
