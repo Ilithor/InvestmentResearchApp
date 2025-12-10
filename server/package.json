@@ -1,0 +1,16 @@
+{
+  "name": "investment-research-server",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "echo \"server dev not yet implemented\"",
+    "build": "echo \"server build not yet implemented\"",
+    "test": "echo \"server tests not yet implemented\"",
+    "test:ci": "echo \"server tests not yet implemented\"",
+    "lint": "echo \"server lint not yet implemented\"",
+    "type-check": "echo \"server type-check not yet implemented\"",
+    "format": "echo \"server format not yet implemented\"",
+    "format:check": "echo \"server format check not yet implemented\""
+  }
+}
+
