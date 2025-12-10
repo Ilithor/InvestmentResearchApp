@@ -2,15 +2,26 @@
   "name": "investment-research-server",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
-    "dev": "echo \"server dev not yet implemented\"",
-    "build": "echo \"server build not yet implemented\"",
+    "dev": "node --watch dist/index.js",
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/index.js",
     "test": "echo \"server tests not yet implemented\"",
     "test:ci": "echo \"server tests not yet implemented\"",
     "lint": "echo \"server lint not yet implemented\"",
-    "type-check": "echo \"server type-check not yet implemented\"",
+    "type-check": "tsc -p tsconfig.json --noEmit",
     "format": "echo \"server format not yet implemented\"",
     "format:check": "echo \"server format check not yet implemented\""
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "typescript": "^5.3.3"
   }
 }
 
