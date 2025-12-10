@@ -46,19 +46,19 @@ const mockFetch = (url: string) => {
     return new Response(JSON.stringify(results), { status: 200 });
   }
   if (u.pathname.startsWith('/api/quote/')) {
-    const symbol = u.pathname.split('/').pop() || '';
+    const symbol = (u.pathname.split('/').pop() || '').toUpperCase();
     const data = dummyQuotes[symbol];
     if (!data) return new Response('Quote not found', { status: 404 });
     return new Response(JSON.stringify(data), { status: 200 });
   }
   if (u.pathname.startsWith('/api/profile/')) {
-    const symbol = u.pathname.split('/').pop() || '';
+    const symbol = (u.pathname.split('/').pop() || '').toUpperCase();
     const data = dummyProfiles[symbol];
     if (!data) return new Response('Profile not found', { status: 404 });
     return new Response(JSON.stringify(data), { status: 200 });
   }
   if (u.pathname.startsWith('/api/history/')) {
-    const symbol = u.pathname.split('/').pop() || '';
+    const symbol = (u.pathname.split('/').pop() || '').toUpperCase();
     const data = dummyPriceHistory[symbol];
     if (!data) return new Response('Price history not found', { status: 404 });
     return new Response(JSON.stringify(data), { status: 200 });
