@@ -1,5 +1,5 @@
 import { marketDataService } from './marketDataService';
-import { API_BASE_URL } from '@/config/api';
+import { getApiBaseUrl } from '@/config/api';
 import { Response } from 'whatwg-fetch';
 
 const dummySearchResults = [
@@ -70,7 +70,7 @@ describe('marketDataService (dummy, via mocked fetch)', () => {
   const originalFetch = global.fetch;
 
   beforeAll(() => {
-    expect(API_BASE_URL).toBe('http://localhost:3001');
+    expect(getApiBaseUrl()).toBe('http://localhost:3001');
   });
 
   beforeEach(() => {

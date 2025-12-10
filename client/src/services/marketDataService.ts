@@ -1,4 +1,4 @@
-import { API_BASE_URL } from '@/config/api';
+import { getApiBaseUrl } from '@/config/api';
 import {
   AssetProfile,
   AssetQuote,
@@ -7,7 +7,7 @@ import {
 } from '@/types/market';
 
 const request = async <T>(path: string, init?: RequestInit): Promise<T> => {
-  const url = `${API_BASE_URL}${path}`;
+  const url = `${getApiBaseUrl()}${path}`;
   const res = await fetch(url, init);
   if (!res.ok) {
     const text = await res.text();
