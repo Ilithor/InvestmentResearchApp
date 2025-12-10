@@ -1,0 +1,176 @@
+@import '@/styles/scss/index';
+
+.button {
+  @include button-base;
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  &:focus-visible {
+    @include focus-ring(var(--color-focus-ring), 3px);
+  }
+
+  &:focus-visible:hover:not(:disabled) {
+    /* Keep focus ring visible when hovered - accessibility best practice */
+    box-shadow: 0 0 0 3px var(--color-focus-ring);
+  }
+
+  &--sm {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    font-size: 0.875rem;
+  }
+
+  &--md {
+    padding: var(--spacing-sm) var(--spacing-md);
+    font-size: 1rem;
+  }
+
+  &--lg {
+    padding: var(--spacing-md) var(--spacing-lg);
+    font-size: 1.125rem;
+  }
+
+  &--full-width {
+    width: 100%;
+  }
+
+  &--primary {
+    background-color: var(--color-primary);
+    color: var(--color-background);
+    border-color: var(--color-primary);
+
+    &:hover:not(:disabled) {
+      background-color: var(--color-primary);
+      opacity: 0.9;
+    }
+
+    &.button--no-hover-transform:hover:not(:disabled) {
+      transform: none;
+    }
+
+    &:not(.button--no-hover-transform):hover:not(:disabled):not(:focus-visible) {
+      transform: translateY(-1px);
+    }
+
+    &:not(.button--no-hover-transform):active:not(:disabled) {
+      transform: translateY(0);
+    }
+  }
+
+  &--secondary {
+    background-color: var(--color-secondary);
+    color: var(--color-background);
+    border-color: var(--color-secondary);
+
+    &:hover:not(:disabled) {
+      background-color: var(--color-secondary);
+      opacity: 0.9;
+    }
+
+    &.button--no-hover-transform:hover:not(:disabled) {
+      transform: none;
+    }
+
+    &:not(.button--no-hover-transform):hover:not(:disabled):not(:focus-visible) {
+      transform: translateY(-1px);
+    }
+
+    &:not(.button--no-hover-transform):active:not(:disabled) {
+      transform: translateY(0);
+    }
+  }
+
+  &--outline {
+    background-color: transparent;
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+
+    &:hover:not(:disabled) {
+      background-color: var(--color-primary);
+      color: var(--color-background);
+    }
+
+    &.button--no-hover-transform:hover:not(:disabled) {
+      transform: none;
+    }
+
+    &:not(.button--no-hover-transform):hover:not(:disabled):not(:focus-visible) {
+      transform: translateY(-1px);
+    }
+
+    &:not(.button--no-hover-transform):active:not(:disabled) {
+      transform: translateY(0);
+    }
+  }
+
+  &--danger {
+    background-color: var(--color-error);
+    color: var(--color-background);
+    border-color: var(--color-error);
+
+    &:hover:not(:disabled) {
+      background-color: var(--color-error);
+      opacity: 0.9;
+    }
+
+    &.button--no-hover-transform:hover:not(:disabled) {
+      transform: none;
+    }
+
+    &:not(.button--no-hover-transform):hover:not(:disabled):not(:focus-visible) {
+      transform: translateY(-1px);
+    }
+
+    &:not(.button--no-hover-transform):active:not(:disabled) {
+      transform: translateY(0);
+    }
+  }
+
+  &--loading {
+    position: relative;
+    pointer-events: none;
+  }
+
+  &__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 1em;
+    height: 1em;
+
+    svg {
+      width: 100%;
+      height: 100%;
+      fill: currentColor;
+    }
+  }
+
+  &__spinner {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    border: 2px solid currentColor;
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: spin 0.6s linear infinite;
+    flex-shrink: 0;
+  }
+
+  &__text {
+    display: inline-block;
+  }
+
+  &--loading &__text {
+    opacity: 0.7;
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+

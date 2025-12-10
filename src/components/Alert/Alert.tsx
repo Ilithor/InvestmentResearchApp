@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react';
 import { useTheme } from '@/context/ThemeContext';
-import './Alert.css';
+import './Alert.scss';
 
 /**
  * Alert variant styles

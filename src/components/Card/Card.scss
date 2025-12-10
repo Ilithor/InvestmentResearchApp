@@ -1,0 +1,62 @@
+@import '@/styles/scss/index';
+
+.card {
+  @include card-base;
+
+  &--outlined {
+    border: 1px solid var(--color-border);
+  }
+
+  &--elevated {
+    box-shadow: var(--shadow-sm);
+  }
+
+  &--padding-none {
+    padding: 0;
+  }
+
+  &--padding-sm {
+    padding: var(--spacing-sm);
+  }
+
+  &--padding-md {
+    padding: var(--spacing-md);
+  }
+
+  &--padding-lg {
+    padding: var(--spacing-lg);
+  }
+
+  &--clickable {
+    cursor: pointer;
+
+    &:hover:not(:focus):not(:focus-visible) {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+
+    &:focus,
+    &:focus-visible {
+      @include focus-ring(var(--color-focus-ring), 3px);
+    }
+
+    &:focus:hover,
+    &:focus-visible:hover {
+      /* Keep focus ring visible when hovered - combine both shadows */
+      box-shadow:
+        0 0 0 3px var(--color-focus-ring),
+        var(--shadow-md);
+    }
+  }
+
+  &--disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+    pointer-events: none;
+  }
+}
+

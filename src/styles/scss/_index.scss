@@ -1,0 +1,13 @@
+/**
+ * SCSS Main Entry Point
+ * 
+ * Imports all SCSS utilities and variables
+ * Use this file when you need SCSS features in components
+ * 
+ * Note: Using @import for compatibility. Consider migrating to @use/@forward
+ * when Dart Sass 3.0.0 is released and the ecosystem has fully migrated.
+ */
+
+@import 'variables';
+@import 'utils/mixins';
+@import 'utils/functions';

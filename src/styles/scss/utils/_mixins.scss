@@ -1,0 +1,73 @@
+/**
+ * SCSS Mixins
+ * 
+ * Reusable style patterns for components
+ */
+
+/**
+ * Focus ring mixin for accessible focus indicators
+ * @param {String} $color - CSS variable for focus ring color (default: --color-focus-ring)
+ * @param {Number} $width - Width of focus ring (default: 2px)
+ */
+@mixin focus-ring($color: var(--color-focus-ring), $width: 2px) {
+  outline: none;
+  box-shadow: 0 0 0 $width $color;
+}
+
+/**
+ * Button base styles mixin
+ */
+@mixin button-base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm) var(--spacing-md);
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.5;
+  border: 1px solid transparent;
+  border-radius: var(--border-radius-md);
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+/**
+ * Input base styles mixin
+ */
+@mixin input-base {
+  padding: var(--spacing-sm) var(--spacing-md);
+  font-family: inherit;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--color-text);
+  background-color: var(--color-background);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-md);
+  transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+/**
+ * Card base styles mixin
+ */
+@mixin card-base {
+  background-color: var(--color-surface);
+  border-radius: var(--border-radius-md);
+  transition: all 0.2s ease-in-out;
+}
+
+/**
+ * Widget base styles mixin (for future dashboard widgets)
+ */
+@mixin widget-base {
+  padding: var(--spacing-md);
+  border-radius: var(--border-radius-md);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-sm);
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+}
+

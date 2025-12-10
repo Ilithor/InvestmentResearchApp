@@ -1,6 +1,6 @@
 import { forwardRef } from 'react';
 import { useTheme } from '@/context/ThemeContext';
-import './Card.css';
+import './Card.scss';
 
 /**
  * Card variant styles

@@ -1,0 +1,65 @@
+@import '@/styles/scss/index';
+
+.input-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.input-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text);
+
+  &--required::after {
+    content: ' *';
+    color: var(--color-error);
+  }
+}
+
+.input {
+  @include input-base;
+
+  &:focus,
+  &:focus-visible {
+    outline: none;
+    border-color: var(--color-primary);
+    @include focus-ring(var(--color-focus-ring), 3px);
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    background-color: var(--color-surface);
+  }
+
+  &::placeholder {
+    color: var(--color-text-secondary);
+    opacity: 0.6;
+  }
+
+  &--error {
+    border-color: var(--color-error);
+
+    &:focus,
+    &:focus-visible {
+      border-color: var(--color-error);
+      @include focus-ring(var(--color-error-focus-ring), 3px);
+    }
+  }
+
+  &--full-width {
+    width: 100%;
+  }
+}
+
+.input-error-text {
+  font-size: 0.875rem;
+  color: var(--color-error);
+}
+
+.input-helper-text {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+}
+

@@ -1,6 +1,6 @@
 import { forwardRef, useId } from 'react';
 import { useTheme } from '@/context/ThemeContext';
-import './Input.css';
+import './Input.scss';
 
 /**
  * Input Component Props

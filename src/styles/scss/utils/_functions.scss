@@ -1,0 +1,68 @@
+/**
+ * SCSS Functions
+ * 
+ * Utility functions for color manipulation and calculations
+ * Note: These work with SCSS variables, not CSS variables
+ */
+
+/**
+ * Creates a semi-transparent background color
+ * @param {Color} $color - Base color (SCSS variable)
+ * @param {Number} $opacity - Opacity value 0-1 (default: 0.1)
+ * @return {Color} rgba color
+ */
+@function alert-bg($color, $opacity: 0.1) {
+  @return rgba($color, $opacity);
+}
+
+/**
+ * Lightens a color by a percentage
+ * @param {Color} $color - Base color (SCSS variable)
+ * @param {Number} $amount - Percentage to lighten (0-100)
+ * @return {Color} Lightened color
+ */
+@function lighten-color($color, $amount) {
+  @return lighten($color, $amount);
+}
+
+/**
+ * Darkens a color by a percentage
+ * @param {Color} $color - Base color (SCSS variable)
+ * @param {Number} $amount - Percentage to darken (0-100)
+ * @return {Color} Darkened color
+ */
+@function darken-color($color, $amount) {
+  @return darken($color, $amount);
+}
+
+/**
+ * Mixes two colors
+ * @param {Color} $color1 - First color (SCSS variable)
+ * @param {Color} $color2 - Second color (SCSS variable)
+ * @param {Number} $weight - Weight of first color (0-100)
+ * @return {Color} Mixed color
+ */
+@function mix-colors($color1, $color2, $weight: 50%) {
+  @return mix($color1, $color2, $weight);
+}
+
+/**
+ * Calculates performance color based on value
+ * For use in charts and visualizations
+ * @param {String} $type - 'gain' or 'loss'
+ * @param {Number} $intensity - Intensity value 0-1
+ * @param {Color} $gain-color - Color for gains (default: success)
+ * @param {Color} $loss-color - Color for losses (default: error)
+ * @return {Color} Performance color
+ */
+@function performance-color(
+  $type,
+  $intensity,
+  $gain-color: $color-success-light,
+  $loss-color: $color-error-light
+) {
+  $base-color: if($type == 'gain', $gain-color, $loss-color); // sass-lint-disable-line if-function
+  $opacity: min($intensity, 1);
+  @return rgba($base-color, $opacity);
+}
+

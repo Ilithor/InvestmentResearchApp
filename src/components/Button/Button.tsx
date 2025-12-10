@@ -1,6 +1,6 @@
 import { forwardRef } from 'react';
 import { useTheme } from '@/context/ThemeContext';
-import './Button.css';
+import './Button.scss';
 
 /**
  * Button variant styles

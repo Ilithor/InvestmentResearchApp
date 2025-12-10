@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTheme } from '@/context/ThemeContext';
-import './Spinner.css';
+import './Spinner.scss';
 
 /**
  * Spinner size options

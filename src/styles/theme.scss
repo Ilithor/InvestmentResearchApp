@@ -1,0 +1,78 @@
+/**
+ * Theme CSS Variables - Generated from SCSS Variables
+ * 
+ * This file uses SCSS variables as the single source of truth
+ * and generates CSS variables for runtime theming.
+ */
+
+@import 'scss/variables';
+
+/* Theme CSS Variables - Applied via ThemeProvider */
+:root {
+  /* Colors - Light Theme */
+  --color-primary: #{$color-primary-light};
+  --color-secondary: #{$color-secondary-light};
+  --color-background: #{$color-background-light};
+  --color-surface: #{$color-surface-light};
+  --color-text: #{$color-text-light};
+  --color-text-secondary: #{$color-text-secondary-light};
+  --color-border: #{$color-border-light};
+  --color-error: #{$color-error-light};
+  --color-success: #{$color-success-light};
+  --color-warning: #{$color-warning-light};
+
+  /* Focus Rings */
+  --color-focus-ring: #{$color-focus-ring-light};
+  --color-error-focus-ring: #{$color-error-focus-ring-light};
+
+  /* Shadows */
+  --shadow-sm: #{$shadow-sm-light};
+  --shadow-md: #{$shadow-md-light};
+
+  /* Alert Backgrounds */
+  --color-info-bg: #{$color-info-bg-light};
+  --color-success-bg: #{$color-success-bg-light};
+  --color-warning-bg: #{$color-warning-bg-light};
+  --color-error-bg: #{$color-error-bg-light};
+
+  /* Spacing */
+  --spacing-xs: #{$spacing-xs};
+  --spacing-sm: #{$spacing-sm};
+  --spacing-md: #{$spacing-md};
+  --spacing-lg: #{$spacing-lg};
+  --spacing-xl: #{$spacing-xl};
+
+  /* Border Radius */
+  --border-radius-sm: #{$border-radius-sm};
+  --border-radius-md: #{$border-radius-md};
+  --border-radius-lg: #{$border-radius-lg};
+}
+
+[data-theme='dark'] {
+  /* Colors - Dark Theme */
+  --color-primary: #{$color-primary-dark};
+  --color-secondary: #{$color-secondary-dark};
+  --color-background: #{$color-background-dark};
+  --color-surface: #{$color-surface-dark};
+  --color-text: #{$color-text-dark};
+  --color-text-secondary: #{$color-text-secondary-dark};
+  --color-border: #{$color-border-dark};
+  --color-error: #{$color-error-dark};
+  --color-success: #{$color-success-dark};
+  --color-warning: #{$color-warning-dark};
+
+  /* Focus Rings */
+  --color-focus-ring: #{$color-focus-ring-dark};
+  --color-error-focus-ring: #{$color-error-focus-ring-dark};
+
+  /* Shadows */
+  --shadow-sm: #{$shadow-sm-dark};
+  --shadow-md: #{$shadow-md-dark};
+
+  /* Alert Backgrounds */
+  --color-info-bg: #{$color-info-bg-dark};
+  --color-success-bg: #{$color-success-bg-dark};
+  --color-warning-bg: #{$color-warning-bg-dark};
+  --color-error-bg: #{$color-error-bg-dark};
+}
+
