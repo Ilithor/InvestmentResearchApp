@@ -1,61 +1,37 @@
+import { API_BASE_URL } from '@/config/api';
 import {
   AssetProfile,
   AssetQuote,
   AssetSearchResult,
   PricePoint,
 } from '@/types/market';
-import {
-  dummyPriceHistory,
-  dummyProfiles,
-  dummyQuotes,
-  dummySearchResults,
-} from './dummyMarketData';
 
-const networkDelay = (ms = 120) =>
-  new Promise(resolve => setTimeout(resolve, ms));
+const request = async <T>(path: string, init?: RequestInit): Promise<T> => {
+  const url = `${API_BASE_URL}${path}`;
+  const res = await fetch(url, init);
+  if (!res.ok) {
+    const text = await res.text();
+    throw new Error(text || `Request failed: ${res.status}`);
+  }
+  return res.json() as Promise<T>;
+};
 
-/**
- * Dummy market data service.
- *
- * Replace implementations here with real API calls later.
- * Keep the function signatures stable to minimize refactors.
- */
 export const marketDataService = {
   async searchAssets(query: string): Promise<AssetSearchResult[]> {
-    await networkDelay();
     if (!query.trim()) return [];
-    const q = query.toLowerCase();
-    return dummySearchResults.filter(
-      asset =>
-        asset.symbol.toLowerCase().includes(q) ||
-        asset.name.toLowerCase().includes(q)
-    );
+    const params = new URLSearchParams({ q: query });
+    return request<AssetSearchResult[]>(`/api/search?${params.toString()}`);
   },
 
   async getQuote(symbol: string): Promise<AssetQuote> {
-    await networkDelay();
-    const quote = dummyQuotes[symbol.toUpperCase()];
-    if (!quote) {
-      throw new Error(`Quote not found for symbol: ${symbol}`);
-    }
-    return quote;
+    return request<AssetQuote>(`/api/quote/${encodeURIComponent(symbol)}`);
   },
 
   async getProfile(symbol: string): Promise<AssetProfile> {
-    await networkDelay();
-    const profile = dummyProfiles[symbol.toUpperCase()];
-    if (!profile) {
-      throw new Error(`Profile not found for symbol: ${symbol}`);
-    }
-    return profile;
+    return request<AssetProfile>(`/api/profile/${encodeURIComponent(symbol)}`);
   },
 
   async getPriceHistory(symbol: string): Promise<PricePoint[]> {
-    await networkDelay();
-    const prices = dummyPriceHistory[symbol.toUpperCase()];
-    if (!prices) {
-      throw new Error(`Price history not found for symbol: ${symbol}`);
-    }
-    return prices;
+    return request<PricePoint[]>(`/api/history/${encodeURIComponent(symbol)}`);
   },
 };
