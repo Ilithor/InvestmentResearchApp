@@ -46,6 +46,9 @@
   --border-radius-sm: #{$border-radius-sm};
   --border-radius-md: #{$border-radius-md};
   --border-radius-lg: #{$border-radius-lg};
+
+  /* Navigation Active Link Background - Consistent across themes */
+  --color-nav-active-bg: #{$nav-active-bg};
 }
 
 [data-theme='dark'] {
@@ -74,5 +77,8 @@
   --color-success-bg: #{$color-success-bg-dark};
   --color-warning-bg: #{$color-warning-bg-dark};
   --color-error-bg: #{$color-error-bg-dark};
+
+  /* Navigation Active Link Background - Consistent across themes (not overridden) */
+  /* Uses value from :root */
 }
 

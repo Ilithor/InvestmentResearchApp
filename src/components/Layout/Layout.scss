@@ -42,7 +42,8 @@
 
     &.active {
       color: var(--color-primary);
-      background: var(--color-info-bg);
+      /* Use consistent background color across themes */
+      background: var(--color-nav-active-bg);
     }
   }
 
@@ -61,4 +62,3 @@
     margin: 0 auto;
   }
 }
-
