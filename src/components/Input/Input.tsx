@@ -104,11 +104,13 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
       id: inputId,
       className: classes,
       required,
-      ...(error && { 'aria-invalid': true }),
-      ...(required && { 'aria-required': true }),
-      ...((error || helperText) && {
-        'aria-describedby': `${inputId}-${error ? 'error' : 'helper'}`,
-      }),
+      ...(error ? { 'aria-invalid': true } : {}),
+      ...(required ? { 'aria-required': true } : {}),
+      ...(error || helperText
+        ? {
+            'aria-describedby': `${inputId}-${error ? 'error' : 'helper'}`,
+          }
+        : {}),
       ...restProps,
     };
 
