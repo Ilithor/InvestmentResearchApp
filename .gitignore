@@ -8,13 +8,19 @@ pnpm-debug.log*
 lerna-debug.log*
 
 node_modules
+client/node_modules
+server/node_modules
 dist
+client/dist
 dist-ssr
+client/.vite
+.vite
 *.local
 .env
 
 # Testing
 coverage
+client/coverage
 .nyc_output
 
 # Husky
