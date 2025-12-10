@@ -4,6 +4,7 @@ import { Response } from 'whatwg-fetch';
 
 const dummySearchResults = [
   { symbol: 'AAPL', name: 'Apple Inc.', type: 'Equity', exchange: 'NASDAQ' },
+  { symbol: 'TSLA', name: 'Tesla, Inc.', type: 'Equity', exchange: 'NASDAQ' },
 ];
 
 const dummyQuotes: Record<string, unknown> = {
@@ -34,7 +35,15 @@ const dummyPriceHistory: Record<string, Array<Record<string, unknown>>> = {
 const mockFetch = (url: string) => {
   const u = new URL(url);
   if (u.pathname === '/api/search') {
-    return new Response(JSON.stringify(dummySearchResults), { status: 200 });
+    const q = (u.searchParams.get('q') || '').toLowerCase();
+    const results = q
+      ? dummySearchResults.filter(
+          asset =>
+            asset.symbol.toLowerCase().includes(q) ||
+            asset.name.toLowerCase().includes(q)
+        )
+      : [];
+    return new Response(JSON.stringify(results), { status: 200 });
   }
   if (u.pathname.startsWith('/api/quote/')) {
     const symbol = u.pathname.split('/').pop() || '';
@@ -76,7 +85,13 @@ describe('marketDataService (dummy, via mocked fetch)', () => {
 
   it('searchAssets returns matches by symbol or name', async () => {
     const results = await marketDataService.searchAssets('aap');
-    expect(results.some(r => r.symbol === 'AAPL')).toBe(true);
+    expect(results).toHaveLength(1);
+    expect(results[0]!.symbol).toBe('AAPL');
+  });
+
+  it('searchAssets returns empty when no match is found', async () => {
+    const results = await marketDataService.searchAssets('zzz');
+    expect(results).toHaveLength(0);
   });
 
   it('getQuote returns a quote for a known symbol', async () => {

@@ -1,10 +1,18 @@
-// Access import.meta.env safely for non-Vite environments (e.g., Jest).
+// Make this file a module so global augmentation is allowed.
+export {};
+
+// Access Vite env via a global bridge set in the browser entrypoint (main.tsx).
+declare global {
+  // Exposed by main.tsx in Vite builds; absent in tests/Node.
+  // eslint-disable-next-line no-var
+  var __VITE_ENV__: ImportMetaEnv | undefined;
+}
+
 const getViteEnv = (): Record<string, string> | undefined => {
   try {
-    // Avoid static reference to import.meta so CommonJS/Jest can parse this file.
-    return new Function(
-      'return (typeof import !== "undefined" && import.meta && import.meta.env) ? import.meta.env : undefined;'
-    )() as Record<string, string> | undefined;
+    return typeof globalThis !== 'undefined'
+      ? globalThis.__VITE_ENV__
+      : undefined;
   } catch {
     return undefined;
   }
