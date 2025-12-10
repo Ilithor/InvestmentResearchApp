@@ -20,7 +20,12 @@ const getViteEnv = (): Record<string, string> | undefined => {
 
 const viteEnv = getViteEnv();
 
+const nodeEnv =
+  typeof process !== 'undefined' && process.env
+    ? (process.env as Record<string, string | undefined>)
+    : undefined;
+
 export const API_BASE_URL =
   (viteEnv && viteEnv.VITE_API_BASE_URL) ||
-  process.env.VITE_API_BASE_URL ||
+  (nodeEnv && nodeEnv.VITE_API_BASE_URL) ||
   'http://localhost:3001';
