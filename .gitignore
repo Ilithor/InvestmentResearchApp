@@ -45,3 +45,7 @@ DRAFT*.md
 *_NOTES.md
 *_TODO.md
 
+# Local planning and rules directories (kept out of git)
+plan/
+rules/
+
