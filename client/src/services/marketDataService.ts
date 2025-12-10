@@ -11,7 +11,8 @@ import {
   dummySearchResults,
 } from './dummyMarketData';
 
-const networkDelay = (ms = 120) => new Promise(resolve => setTimeout(resolve, ms));
+const networkDelay = (ms = 120) =>
+  new Promise(resolve => setTimeout(resolve, ms));
 
 /**
  * Dummy market data service.
@@ -58,4 +59,3 @@ export const marketDataService = {
     return prices;
   },
 };
-
