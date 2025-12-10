@@ -6,7 +6,7 @@ const dummySearchResults = [
   { symbol: 'AAPL', name: 'Apple Inc.', type: 'Equity', exchange: 'NASDAQ' },
 ];
 
-const dummyQuotes: Record<string, any> = {
+const dummyQuotes: Record<string, unknown> = {
   AAPL: {
     symbol: 'AAPL',
     price: 188.15,
@@ -17,7 +17,7 @@ const dummyQuotes: Record<string, any> = {
   },
 };
 
-const dummyProfiles: Record<string, any> = {
+const dummyProfiles: Record<string, unknown> = {
   AAPL: {
     symbol: 'AAPL',
     name: 'Apple Inc.',
@@ -27,7 +27,7 @@ const dummyProfiles: Record<string, any> = {
   },
 };
 
-const dummyPriceHistory: Record<string, any[]> = {
+const dummyPriceHistory: Record<string, Array<Record<string, unknown>>> = {
   AAPL: [{ date: '2025-12-09', close: 189.17 }],
 };
 
@@ -58,6 +58,8 @@ const mockFetch = (url: string) => {
 };
 
 describe('marketDataService (dummy, via mocked fetch)', () => {
+  const originalFetch = global.fetch;
+
   beforeAll(() => {
     expect(API_BASE_URL).toBe('http://localhost:3001');
   });
@@ -66,6 +68,10 @@ describe('marketDataService (dummy, via mocked fetch)', () => {
     global.fetch = jest.fn(async (input: RequestInfo | URL) =>
       mockFetch(String(input))
     ) as unknown as typeof fetch;
+  });
+
+  afterEach(() => {
+    global.fetch = originalFetch;
   });
 
   it('searchAssets returns matches by symbol or name', async () => {
