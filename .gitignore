@@ -33,6 +33,7 @@ coverage
 
 # Markdown files - all kept local for reference only
 *.md
+!README.md
 
 # Personal/Internal Notes (additional patterns for safety)
 NOTES.md
