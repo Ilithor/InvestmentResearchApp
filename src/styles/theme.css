@@ -14,6 +14,10 @@
   --color-error-focus-ring: rgba(239, 68, 68, 0.3);
   --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
   --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.15);
+  --color-info-bg: rgba(37, 99, 235, 0.1);
+  --color-success-bg: rgba(34, 197, 94, 0.1);
+  --color-warning-bg: rgba(245, 158, 11, 0.1);
+  --color-error-bg: rgba(239, 68, 68, 0.1);
 
   --spacing-xs: 0.25rem;
   --spacing-sm: 0.5rem;
@@ -41,4 +45,8 @@
   --color-error-focus-ring: rgba(248, 113, 113, 0.3);
   --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.2);
   --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.25);
+  --color-info-bg: rgba(59, 130, 246, 0.12);
+  --color-success-bg: rgba(74, 222, 128, 0.12);
+  --color-warning-bg: rgba(251, 191, 36, 0.12);
+  --color-error-bg: rgba(248, 113, 113, 0.12);
 }
